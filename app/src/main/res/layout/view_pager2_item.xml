@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="itemData"
+            type="com.study.zhai.test.VpItemBean" />
+        <variable
+            name="clickEvent"
+            type="com.study.zhai.test.MyAdapter.EventListener" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@{itemData.imgResId}"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{itemData.desc}"
+            android:textColor="@{itemData.testColorResId}"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{itemData.desc}"
+            android:onClick="@{clickEvent.toOtherAPP}"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{itemData.desc}"
+            android:onClick="@{(view)->{clickEvent.toOtherAPP2(view)}}"
+            android:visibility="@{itemData.visible}"/>
+    </LinearLayout>
+
+</layout>
